@@ -137,6 +137,7 @@ func (s *SmartContract) CreateWorkRequest(APIstub shim.ChaincodeStubInterface, a
 		APIstub.PutState("RequestCount", []byte(strconv.Itoa(byteToInt)))
 	}else{
 		APIstub.PutState("RequestCount", []byte(strconv.Itoa(1)))
+		byteToInt = 1
 	}
 	APIstub.PutState("req"+strconv.Itoa(byteToInt), []byte( args[0]))
 	return shim.Success(nil)
